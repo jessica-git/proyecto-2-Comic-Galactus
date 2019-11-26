@@ -1,20 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const Character = require("../models/character.model");
 
 const axios = require("axios");
 
 router.get("/search", (req, res, next) => {
-  // res.render("search");
+  res.render("search");
+});
 
-  router.post("/search", (req, res, next) => {
-    const character = req.body;
-    console.log(character, "ole oleeeee");
-  });
-
+router.post("/search", (req, res, next) => {
+  const character = req.body;
+  const nameCharacter = character.name;
+  console.log(character, "ole oleeeee");
+  console.log(character.name, "yuuuuuujuuuu");
   axios
     .get(
-      "https://comicvine.gamespot.com/api/search/?query=character&api_key=9a20aa0fa095f2c84ac1081729cd51a18c4daa0d&format=json"
+      `https://comicvine.gamespot.com/api/search/?query=${nameCharacter}&api_key=9a20aa0fa095f2c84ac1081729cd51a18c4daa0d&format=json`
     )
     .then(responseFromApi => {
       console.log(

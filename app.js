@@ -10,7 +10,8 @@ const logger = require("morgan");
 const path = require("path");
 
 const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+//const newcomic = require("express-newcomic")
+const MongoStore = require("connect-mongo")(session); //(newcomic);
 const flash = require("connect-flash");
 
 mongoose
@@ -63,7 +64,7 @@ hbs.registerHelper("ifUndefined", (value, options) => {
 });
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "Comics";
 
 // Enable authentication using session + passport
 app.use(
@@ -83,4 +84,11 @@ app.use("/auth", require("./routes/auth"));
 
 app.use("/search", require("./routes/search.routes"));
 
+const authRoutes = require("./routes/auth");
+app.use("/auth", authRoutes);
+
+const readRoutes = require("./routes/read.route");
+app.use("/read", readRoutes);
+
+app.use("/newComic", require("./routes/new-comic.routes")); //enlace de rutas
 module.exports = app;

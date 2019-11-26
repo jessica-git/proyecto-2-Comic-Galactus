@@ -7,7 +7,7 @@ const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
+//LOGIN
 router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
@@ -19,6 +19,7 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+//SIGNUP
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
@@ -55,6 +56,8 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+
+//LOGOUT
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
