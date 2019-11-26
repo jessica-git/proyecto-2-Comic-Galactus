@@ -1,0 +1,21 @@
+<h1>SEARCH</h1>
+
+<h2>Search Comic</h2>
+
+<form action="/search/search" method="POST" id="form-container">
+  <label for="name">Username</label>
+  <input id="name" type="text" name="name" placeholder="Find your character">
+  <button type="submit">buscar</button>
+
+  <br><br>
+
+
+  {{#each character}}
+  <h1>{{this.name}}</h1>
+  <p>Genero:{{this.gender}} {{this.realname}} {{this.image.small_url}}</p>
+  <p>Publisher: {{this.publisher.name}}</p>
+  <p>First appeared in issue:{{this.first_appeared_in_issue.name}}</p>
+  <p>Count of issue appearances: {{this.count_of_issue_appearances}}</p>
+  <p>{{this.deck}}</p>
+
+  {{/each}}
