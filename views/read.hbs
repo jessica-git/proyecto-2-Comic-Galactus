@@ -1,6 +1,7 @@
 <H1>MUST READ</H1>
 <div class="row">
   {{#each Comic}}
+  {{!-- {{#if (Comic.volume.name)}} --}}
   <div class="col-md-4">
     <div class="card">
       <img class="card-img-top" src="{{image.small_url}}" alt="{{name}}">
@@ -14,5 +15,6 @@
       </div>
     </div>
   </div>
+  {{!-- {{/if}} --}}
   {{/each}}
 </div>
