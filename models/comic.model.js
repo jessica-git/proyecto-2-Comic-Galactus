@@ -6,7 +6,7 @@ const comicSchema = new Schema({
     name: String,
     description: String,
     issuesNumber: String,
-    resourceTypes: String,
+    resourceTypes: [character, issues, volume],
     volumen: String,
     publisherName: String
 

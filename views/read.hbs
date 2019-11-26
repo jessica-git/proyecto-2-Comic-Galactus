@@ -1,1 +1,24 @@
+<<<<<<< HEAD
 <H1>MUST READ</H1>
+=======
+<H1>MUST READ</H1>
+<div class="row">
+  {{#each Comic}}
+  {{!-- {{#if (Comic.volume.name)}} --}}
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="{{image.small_url}}" alt="{{name}}">
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p class="card-text">{{{this.deck}}}</p>
+        <p class="card-text">{{this.issuesNumber}}</p>
+        <p class="card-text">{{this.resourceTypes}}</p>
+        <p class="card-text">{{this.volumen}}</p>
+        <p class="card-text">{{this.publisherName}}</p>
+      </div>
+    </div>
+  </div>
+  {{!-- {{/if}} --}}
+  {{/each}}
+</div>
+>>>>>>> ddc27b361a70f5db33150610e3966e48570075cd

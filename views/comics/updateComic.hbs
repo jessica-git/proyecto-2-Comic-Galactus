@@ -1,0 +1,67 @@
+<H1>EDITA TU CÓMIC</H1>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <h1 style="font-weight: 100">Editar cómic {{name}}</h1>
+    </div>
+
+    <div class="col-md-6">
+
+      <form action="#" method="post">
+
+        <div class="form-group">
+          <label for="name-input">Nombre</label>
+          <input name="name" type="text" class="form-control" id="name-input" value="{{comicDB.name}}">
+        </div>
+
+        <div class="form-group">
+          <label for="description-input">Descripción</label>
+          <input name="description" type="text" class="form-control" id="description-input"
+            value="{{comicDB.description}}">
+        </div>
+
+        <div class="form-group">
+          <label for="issues-input">issuesNumber</label>
+          <input name="issuesNumber" type="text" class="form-control" id="issues-input"
+            value="{{comicDB.iissuesNumber}}">
+        </div>
+
+
+        <div class="form-group">
+          <label for="type-list">resourceTypes:</label>
+          <select name="type" class="form-control" id="type-list">
+            <option>Seleccionar</option>
+            {{#each comicDB.esourceTypes}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="publisher-input">publisherName</label>
+          <input name="publisher" type="text" class="form-control" id="publisher-input" value="{{comicDB.publisherName}}">
+        </div>
+
+        <div class="form-group">
+          <label for="volume-input">volume</label>
+          <input name="volume" type="text" class="form-control" id="volume-input" value="{{comicDB.volume}}">
+        </div>
+
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Insertar imagen</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" value="{{comicDB.image}}">
+          </div>
+        </form>
+
+        
+        <button type="submit" class="btn btn-dark">Guardar edición</button>
+        <a href="/ccomicList" class="btn btn-dark">Volver</a>
+
+      </form>
+    </div>
+  </div>
+</div>

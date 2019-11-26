@@ -10,7 +10,7 @@ const User = require("../models/user.model");
 const bcryptSalt = 10;
 
 mongoose
-  .connect('mongodb://localhost/started-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/comic', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
