@@ -1,19 +1,25 @@
 <H1>DETALLES DE TU CÓMIC</H1>
 
 <div class="row">
-  {{#each comicDB}}
+
   <div class="col-md-4">
     <div class="card">
-      <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+      <img class="card-img-top" src="{{comicDT.image}}" alt="{{comicDT.name}}">
       <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text">{{{this.description}}}</p>
-        <p class="card-text">{{this.issuesNumber}}</p>
-        <p class="card-text">{{this.resourceTypes}}</p>
-        <p class="card-text">{{this.volumen}}</p>
-        <p class="card-text">{{this.publisherName}}</p>
+        <h5 class="card-title">{{comicDT.name}}</h5>
+        <p class="card-text">{{{comicDT.description}}}</p>
+        <p class="card-text">{{comicDT.issuesNumber}}</p>
+        <p class="card-text">{{comicDT.resourceTypes}}</p>
+        <p class="card-text">{{comicDT.volumen}}</p>
+        <p class="card-text">{{comicDT.publisherName}}</p>
       </div>
     </div>
   </div>
-  {{/each}}
+  <div class="container">
+    <a href="/newComic/edit/{{comicDT._id}}">Edit</a>
+
+    <a href="/coasters/delete?id={{comicDT._id}}">Eliminar</a>
+  </div>
+
+
 </div>

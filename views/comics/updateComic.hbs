@@ -10,56 +10,56 @@
 
     <div class="col-md-6">
 
-      <form action="#" method="post">
+      <form action="/newComic/edit/{{theComic._id}}" method="post">
 
         <div class="form-group">
           <label for="name-input">Nombre</label>
-          <input name="name" type="text" class="form-control" id="name-input" value="{{comicDB.name}}">
+          <input name="name" type="text" class="form-control" id="name-input" value="{{theComic.name}}">
         </div>
 
         <div class="form-group">
           <label for="description-input">Descripción</label>
           <input name="description" type="text" class="form-control" id="description-input"
-            value="{{comicDB.description}}">
+            value="{{theComic.description}}">
         </div>
 
         <div class="form-group">
           <label for="issues-input">issuesNumber</label>
           <input name="issuesNumber" type="text" class="form-control" id="issues-input"
-            value="{{comicDB.iissuesNumber}}">
+            value="{{theComic.iissuesNumber}}">
         </div>
 
 
         <div class="form-group">
           <label for="type-list">resourceTypes:</label>
           <select name="type" class="form-control" id="type-list">
-            <option>Seleccionar</option>
-            {{#each comicDB.esourceTypes}}
-            <option value="{{_id}}">{{name}}</option>
-            {{/each}}
+            <option disabled selected value>Seleccionar</option>
+            <option>volume</option>
+            <option>Issue</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="publisher-input">publisherName</label>
-          <input name="publisher" type="text" class="form-control" id="publisher-input" value="{{comicDB.publisherName}}">
+          <input name="publisher" type="text" class="form-control" id="publisher-input"
+            value="{{theComic.publisherName}}">
         </div>
 
         <div class="form-group">
           <label for="volume-input">volume</label>
-          <input name="volume" type="text" class="form-control" id="volume-input" value="{{comicDB.volume}}">
+          <input name="volume" type="text" class="form-control" id="volume-input" value="{{theComic.volume}}">
         </div>
 
-        <form>
+        {{!-- <form>
           <div class="form-group">
             <label for="exampleFormControlFile1">Insertar imagen</label>
             <input type="file" class="form-control-file" id="exampleFormControlFile1" value="{{comicDB.image}}">
           </div>
-        </form>
+        </form> --}}
 
-        
+
         <button type="submit" class="btn btn-dark">Guardar edición</button>
-        <a href="/ccomicList" class="btn btn-dark">Volver</a>
+        <a href="/comicList" class="btn btn-dark">Volver</a>
 
       </form>
     </div>

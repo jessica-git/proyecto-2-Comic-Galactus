@@ -9,7 +9,7 @@
 
     <div class="col-md-6">
 
-      <form action="#" method="post">
+      <form action="/newComic/newComic" method="post">
 
         <div class="form-group">
           <label for="name-input">Nombre</label>
@@ -29,11 +29,11 @@
 
         <div class="form-group">
           <label for="type-list">resourceTypes:</label>
-          <select name="type" class="form-control" id="type-list">
-            <option>Seleccionar</option>
-            {{#each comicDB.esourceTypes}}
-            <option value="{{_id}}">{{name}}</option>
-            {{/each}}
+          <select name="resourceTypes" class="form-control" id="type-list">
+            <option disabled selected value>Select Option</option>
+            <option>Volume</option>
+            <option>Issue</option>
+
           </select>
         </div>
 
@@ -47,12 +47,12 @@
           <input name="volume" type="text" class="form-control" id="volume-input">
         </div>
 
-        <form>
+        {{!-- <form>
           <div class="form-group">
             <label for="exampleFormControlFile1">Insertar imagen</label>
             <input type="file" class="form-control-file" id="exampleFormControlFile1">
           </div>
-        </form>
+        </form> --}}
 
         <button type="submit" class="btn btn-dark">Crear</button>
         <a href="/comicList" class="btn btn-dark">Volver</a>
@@ -62,5 +62,3 @@
 
   </div>
 </div>
-
-

@@ -6,28 +6,29 @@ const Comic = require("../models/comic.model");
 router.get("/newComic", (req, res) => res.render("comics/newComic"));
 //enviamos la respuesta del formulario a la base de datos
 router.post("/newComic", (req, res) => {
+  console.log("ES POOOOST");
   const {
     name,
     description,
     issuesNumber,
     resourceTypes,
-    volumen,
+    volume,
     publisherName
   } = req.body;
-  Coasters.create({
+  Comic.create({
     name,
     description,
     issuesNumber,
     resourceTypes,
-    volumen,
+    volume,
     publisherName
   })
-    .then(x => res.redirect("/newComic/comicsList"))
+    .then(newComic => console.log(newComic))
     .catch(x => "error:" + err);
 });
 
 //lista de comics
-router.get("/comicslist", (req, res) => {
+router.get("/comicsList", (req, res) => {
   Comic.find()
     .then(allTheComics =>
       res.render("comics/comicsList", { comicDB: allTheComics })
@@ -47,34 +48,40 @@ router.get("/details/:id", (req, res) => {
 });
 
 // Editar comic: renderizar formulario
-router.get("/edit", (req, res) => {
-  const comicId = req.query.comicId;
-  Comic.findById(comicId)
-    .then(theNewComic => res.render("comics/updateComic", theNewComic))
+router.get("/edit/:id", (req, res) => {
+  Comic.findById(req.params.id)
+    .then(theComic => res.render("comics/updateComic", { theComic: theComic }))
     .catch(err => console.log("error!!", err));
 });
 
+// ruta para borrar comics, simepre hay que ponerlo antes del /:id para evitar conflictos, está relacionado con un boton en comic-details
+router.get("/delete", (req, res) => {
+  Comic.findByIdAndDelete(req.query.id)
+    .then(() => res.redirect("/newComic/comicsList"))
+    .catch(err => console.log(err));
+});
+
 // Editar libro: enviar formulario
-router.post("/edit", (req, res) => {
+router.post("/edit/:id", (req, res) => {
   const {
     name,
     description,
     issuesNumber,
     resourceTypes,
-    volumen,
+    volume,
     publisherName
   } = req.body;
-  const comicId = req.query.comicId;
+  const comicId = req.params.id;
 
   Comic.findByIdAndUpdate(comicId, {
     name,
     description,
     issuesNumber,
     resourceTypes,
-    volumen,
+    volume,
     publisherName
   })
-    .then(res.redirect("comics/comicsList"))
+    .then(res.redirect("/newComic/comicsList"))
     .catch(err => console.log("error!!", err));
 });
 

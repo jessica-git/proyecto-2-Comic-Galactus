@@ -15,11 +15,7 @@ const MongoStore = require("connect-mongo")(session); //(newcomic);
 const flash = require("connect-flash");
 
 mongoose
-<<<<<<< HEAD
-  .connect("mongodb://localhost/comic", { useNewUrlParser: true })
-=======
-  .connect('mongodb://localhost/comic', {useNewUrlParser: true})
->>>>>>> ddc27b361a70f5db33150610e3966e48570075cd
+  .connect(`${process.env.DBLOCAL}`, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`

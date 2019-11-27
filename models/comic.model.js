@@ -1,21 +1,23 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const comicSchema = new Schema({
+const comicSchema = new Schema(
+  {
     image: String,
     name: String,
     description: String,
     issuesNumber: String,
-    resourceTypes: [character, issues, volume],
+    resourceTypes: ["issues", "volume"],
     volumen: String,
     publisherName: String
-
-}, {
+  },
+  {
     timestamps: {
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
+      createdAt: "created_at",
+      updatedAt: "updated_at"
     }
-});
+  }
+);
 
 const Comic = mongoose.model("Comic", comicSchema);
 module.exports = Comic;
