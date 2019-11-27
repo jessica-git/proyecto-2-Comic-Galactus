@@ -15,11 +15,7 @@ const MongoStore = require("connect-mongo")(session); //(newcomic);
 const flash = require("connect-flash");
 
 mongoose
-<<<<<<< HEAD
   .connect("mongodb://localhost/comic", { useNewUrlParser: true })
-=======
-  .connect('mongodb://localhost/comic', {useNewUrlParser: true})
->>>>>>> ddc27b361a70f5db33150610e3966e48570075cd
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -30,9 +26,7 @@ mongoose
   });
 
 const app_name = require("./package.json").name;
-const debug = require("debug")(
-  `${app_name}:${path.basename(__filename).split(".")[0]}`
-);
+const debug = require("debug")(`${app_name}:${path.basename(__filename).split(".")[0]}`)
 
 const app = express();
 
@@ -95,4 +89,8 @@ const readRoutes = require("./routes/read.route");
 app.use("/read", readRoutes);
 
 app.use("/newComic", require("./routes/new-comic.routes")); //enlace de rutas
-module.exports = app;
+
+const imagesRoutes = require("./routes/image.route");
+app.use("comics/newComic", imagesRoutes);
+
+module.exports = app
