@@ -82,5 +82,6 @@ app.use("/search", require("./routes/search.routes"));
 app.use("/read", require("./routes/read.route"));
 app.use("/newComic", require("./routes/new-comic.routes")); 
 app.use("/profile", require("./routes/profile.route"));
+app.use("/store", require("./routes/store.routes"));
 
-module.exports = app
+module.exports = app;
