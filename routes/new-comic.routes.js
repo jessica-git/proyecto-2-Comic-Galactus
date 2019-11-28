@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Comic = require("../models/comic.model");
+const uploadCloud = require("../configs/cloudinary.config")
 
 //renderizamos newComic
 router.get("/newComic", (req, res) => res.render("comics/newComic"));
+
 //enviamos la respuesta del formulario a la base de datos
-router.post("/newComic", (req, res) => {
-  console.log("ES POOOOST");
+router.post("/newComic", uploadCloud.single("imgPath"), (req, res) => {
   const {
     name,
     description,
@@ -15,17 +16,25 @@ router.post("/newComic", (req, res) => {
     volume,
     publisherName
   } = req.body;
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
+ 
   Comic.create({
     name,
     description,
     issuesNumber,
     resourceTypes,
     volume,
-    publisherName
+    publisherName,
+    imgPath,
+    imgName,
   })
-    .then(newComic => console.log(newComic))
+    // .then(newComic => console.log(newComic))
+    .then(res.redirect("/newComic/comicsList"))
     .catch(x => "error:" + err);
 });
+
+
 
 //lista de comics
 router.get("/comicsList", (req, res) => {
@@ -36,8 +45,8 @@ router.get("/comicsList", (req, res) => {
     .catch(err => console.log("Error consultando la BBDD: ", err));
 });
 
-//Detalles de los comics
 
+//Detalles de los comics
 router.get("/details/:id", (req, res) => {
   const comicId = req.params.id;
   Comic.findById(comicId)
@@ -61,8 +70,8 @@ router.get("/delete", (req, res) => {
     .catch(err => console.log(err));
 });
 
-// Editar libro: enviar formulario
-router.post("/edit/:id", (req, res) => {
+// Editar cómic: enviar formulario
+router.post("/edit/:id", uploadCloud.single("imgFile"), (req, res) => {
   const {
     name,
     description,
@@ -71,6 +80,9 @@ router.post("/edit/:id", (req, res) => {
     volume,
     publisherName
   } = req.body;
+
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
   const comicId = req.params.id;
 
   Comic.findByIdAndUpdate(comicId, {
@@ -79,7 +91,9 @@ router.post("/edit/:id", (req, res) => {
     issuesNumber,
     resourceTypes,
     volume,
-    publisherName
+    publisherName,
+    imgPath,
+    imgName,
   })
     .then(res.redirect("/newComic/comicsList"))
     .catch(err => console.log("error!!", err));

@@ -8,14 +8,12 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-
 const session = require("express-session");
-//const newcomic = require("express-newcomic")
-const MongoStore = require("connect-mongo")(session); //(newcomic);
+const MongoStore = require("connect-mongo")(session); 
 const flash = require("connect-flash");
 
 mongoose
-  .connect(`${process.env.DBLOCAL}`, { useNewUrlParser: true })
+  .connect(`${process.env.DB}`, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -26,11 +24,9 @@ mongoose
   });
 
 const app_name = require("./package.json").name;
-const debug = require("debug")(
-  `${app_name}:${path.basename(__filename).split(".")[0]}`
-);
-
+const debug = require("debug")(`${app_name}:${path.basename(__filename).split(".")[0]}`)
 const app = express();
+
 
 // Middleware Setup
 app.use(logger("dev"));
@@ -38,8 +34,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Express View engine setup
 
+// Express View engine setup
 app.use(
   require("node-sass-middleware")({
     src: path.join(__dirname, "public"),
@@ -75,26 +71,17 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
+
 app.use(flash());
 require("./passport")(app);
 
-const index = require("./routes/index");
-app.use("/", index);
+
+app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
-
 app.use("/search", require("./routes/search.routes"));
-
-const authRoutes = require("./routes/auth");
-app.use("/auth", authRoutes);
-
-const readRoutes = require("./routes/read.route");
-app.use("/read", readRoutes);
-
-app.use("/newComic", require("./routes/new-comic.routes")); //enlace de rutas
-
-// const imagesRoutes = require("./routes/image.route");
-// app.use("comics/newComic", imagesRoutes);
-
+app.use("/read", require("./routes/read.route"));
+app.use("/newComic", require("./routes/new-comic.routes")); 
+app.use("/profile", require("./routes/profile.route"));
 app.use("/store", require("./routes/store.routes"));
 
 module.exports = app;

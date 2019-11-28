@@ -3,13 +3,14 @@ const Schema = mongoose.Schema;
 
 const comicSchema = new Schema(
   {
-    image: String,
     name: String,
     description: String,
     issuesNumber: String,
     resourceTypes: ["issues", "volume"],
     volume: String,
-    publisherName: String
+    publisherName: String,
+    imgName: String,
+    imgPath: String
   },
   {
     timestamps: {

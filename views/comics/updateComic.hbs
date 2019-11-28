@@ -10,11 +10,11 @@
 
     <div class="col-md-6">
 
-      <form action="/newComic/edit/{{theComic._id}}" method="post">
+      <form action="/newComic/edit/{{theComic._id}}" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
           <label for="name-input">Nombre</label>
-          <input name="name" type="text" class="form-control" id="name-input" value="{{theComic.name}}">
+          <input name="name" type="text" class="form-control" id="name-input" value="{{theComic.name}}" placeholder="{{theComic.name}}">
         </div>
 
         <div class="form-group">
@@ -26,7 +26,7 @@
         <div class="form-group">
           <label for="issues-input">issuesNumber</label>
           <input name="issuesNumber" type="text" class="form-control" id="issues-input"
-            value="{{theComic.iissuesNumber}}">
+            value="{{theComic.issuesNumber}}">
         </div>
 
 
@@ -40,28 +40,39 @@
         </div>
 
         <div class="form-group">
-          <label for="publisher-input">publisherName</label>
-          <input name="publisher" type="text" class="form-control" id="publisher-input"
-            value="{{theComic.publisherName}}">
+          <label for="publisher-input">Publisher Name</label>
+          <input name="publisher" type="text" class="form-control" id="publisher-input" value="{{theComic.publisherName}}" placeholder="Publisher name">
         </div>
 
         <div class="form-group">
-          <label for="volume-input">volume</label>
-          <input name="volume" type="text" class="form-control" id="volume-input" value="{{theComic.volume}}">
+          <label for="volume-input">Volume</label>
+          <input name="volume" type="text" class="form-control" id="volume-input" value="{{theComic.volume}}" placeholder="Volume">
         </div>
 
-        {{!-- <form>
-          <div class="form-group">
-            <label for="exampleFormControlFile1">Insertar imagen</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1" value="{{comicDB.image}}">
-          </div>
-        </form> --}}
-
+        <div class='form-group'>
+          <label for='input2'>Image:</label>
+          <input name='imgFile' type='file' id='input2' placeholder="Image">
+        </div>
+        
 
         <button type="submit" class="btn btn-dark">Guardar edición</button>
-        <a href="/comicList" class="btn btn-dark">Volver</a>
+        <a href="/newComic/comicsList" class="btn btn-dark">Volver</a>
 
       </form>
+
+        {{!-- <div class="container">
+          <form action="/images/upload" method="post" enctype="multipart/form-data">
+            <div class='form-group'>
+              <label for='input1'>Actualizar imagen</label>
+              <input name='imgName' type='text' class='form-control' id='input1'>
+            </div>
+            <div class='form-group'>
+              <label for='input2'>Imagen:</label>
+              <input name='imgFile' type='file' id='input2'>
+            </div>
+            <button type='submit' class='btn btn-dark'>Subir imagen</button>
+          </form>
+        </div> --}}
     </div>
   </div>
 </div>

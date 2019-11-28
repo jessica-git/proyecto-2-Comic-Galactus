@@ -9,7 +9,8 @@
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+
+  <br><br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
@@ -17,11 +18,5 @@
   <br><br>
 
   <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-
-    <a href="/auth/logout">/ Logout</a>
-  </p>
+  <p class="account-message">Don't have an account yet?<a href="/auth/signup">Signup</a></p>
 </form>
