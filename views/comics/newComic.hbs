@@ -1,64 +1,59 @@
-<H1>AÑADE TU CÓMIC</H1>
+<H1>Add your comic</H1>
 
 <div class="container">
   <div class="row">
 
     <div class="col-md-6">
-      <h1 style="font-weight: 100">Nuevo cómic</h1>
+      <h1 style="font-weight: 100">New Comic</h1>
     </div>
 
     <div class="col-md-6">
 
-      <form action="/newComic/newComic" method="post">
+      <form action="/newComic/newComic" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label for="name-input">Nombre</label>
+          <label for="name-input">Name:</label>
           <input name="name" type="text" class="form-control" id="name-input">
         </div>
 
         <div class="form-group">
-          <label for="description-input">Descripción</label>
-          <input name="description" type="text" class="form-control" id="description-input">
+          <label for="description-input">Description:</label>
+          <input name="description" type="text" class="form-control" id="description-input" placeholder="Description">
         </div>
 
         <div class="form-group">
-          <label for="issues-input">issuesNumber</label>
-          <input name="issuesNumber" type="text" class="form-control" id="issues-input">
+          <label for="issues-input">Issues Number:</label>
+          <input name="issuesNumber" type="text" class="form-control" id="issues-input" placeholder="Issues number">
         </div>
 
-
         <div class="form-group">
-          <label for="type-list">resourceTypes:</label>
+          <label for="type-list">Resource Types:</label>
           <select name="resourceTypes" class="form-control" id="type-list">
             <option disabled selected value>Select Option</option>
             <option>Volume</option>
             <option>Issue</option>
-
           </select>
         </div>
 
         <div class="form-group">
-          <label for="publisher-input">publisherName</label>
-          <input name="publisherName" type="text" class="form-control" id="publisher-input">
+          <label for="publisher-input">Publisher Name:</label>
+          <input name="publisherName" type="text" class="form-control" id="publisher-input" placeholder="Publisher name">
         </div>
 
         <div class="form-group">
-          <label for="volume-input">volume</label>
-          <input name="volume" type="text" class="form-control" id="volume-input">
+          <label for="volume-input">Volume:</label>
+          <input name="volume" type="text" class="form-control" id="volume-input" placeholder="Volume">
         </div>
 
-        {{!-- <form>
-          <div class="form-group">
-            <label for="exampleFormControlFile1">Insertar imagen</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-          </div>
-        </form> --}}
-
-        <button type="submit" class="btn btn-dark">Crear</button>
-        <a href="/comicList" class="btn btn-dark">Volver</a>
+        <label for="image">Upload your comic picture</label>
+        <input id="image" type="file" name="imgPath" placeholder="Your image">
+        <br>
+        <br>
+        
+        <button type="submit" class="btn btn-dark">Create</button>
+        <a href="/newComic/comicsList" class="btn btn-dark">Back</a>
 
       </form>
     </div>
-
   </div>
 </div>

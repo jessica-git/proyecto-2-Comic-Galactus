@@ -22,21 +22,38 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
+
         <li class="nav-item">
-          <a class="nav-link" href="/auth/login">Login</a>
+          <a class="nav-link" href="/profile/{{_id}}">Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/read/mustRead">Must read</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/auth/signup">Singup</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/auth/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/logout">Logout</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/search/search">Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/read/mustRead">Must read</a>
-        </li>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/store">Find store</a>
+        </li>
+        <br><br>
+        <li class="nav-item">
+          {{#if user}}
+          <p>Hola {{user.username}}</p>
+          </li>
+    
+          </li>
+          <img src="{{user.imgPath}}" alt="profile image" width="50" height="50">
+          {{/if}}
         </li>
       </ul>
     </div>
@@ -47,24 +64,3 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
-
-
-{{!--
-
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PARA SUBIR IMAGEN FORMULARIO
-
-
-PARA UPLOAD de la imagen
-router.get('/upload', (req, res) => res.render("images/upload"))
-
-router.post('/upload', uploadCloud.single('imgFile'), (req, res) => { 
-
-    console.log('La información que MULTER deja en req.file es:', req.file)
-
-    Picture.create({ name: req.body.imgName, path: `/uploads/${req.file.filename}`, originalName: req.file.originalname })
-        .then(() => res.redirect('/images'))
-        .catch(err => console.log(err))
-})
-
-module.exports = router;
---}}
