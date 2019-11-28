@@ -7,7 +7,8 @@ const shopSchema = new Schema({
   schedule: String,
   phone: String,
   description: String,
-  rate: String
+  rate: String,
+  cords: { type: { type: String }, coordinates: [Number] }
 });
 
 const Shop = mongoose.model("Shop", shopSchema);
