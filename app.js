@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const session = require("express-session");
-const MongoStore = require("connect-mongo")(session); 
+const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 
 mongoose
@@ -75,12 +75,20 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
+//definimos elementos globales que pasamos a la vista. En este caso es el user
+app.use(function (req, res, next) {
+  res.locals = {
+    user: req.user,
+  };
+  next();
+});
+
 
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/search", require("./routes/search.routes"));
 app.use("/read", require("./routes/read.route"));
-app.use("/newComic", require("./routes/new-comic.routes")); 
+app.use("/newComic", require("./routes/new-comic.routes"));
 app.use("/profile", require("./routes/profile.route"));
 app.use("/store", require("./routes/store.routes"));
 

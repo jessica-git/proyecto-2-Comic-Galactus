@@ -1,22 +1,35 @@
+<div id="login">
 
-<h2>Login</h2>
+  <h2 class="letterColorRed letterText">Login</h2>
+  <img src="/images/chico login izquierda-01.png" alt="image super hero left" class="imgLoginLeft">
+  <img src="/images/chico login derecha-01.png" alt="image super hero left" class="imgLoginRigth">
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Your name">
+  <div>
+    <hr class="hrLogin">
+    <br>
+    <form action="/auth/login" method="POST" id="form-container">
+      <div>
+        <input id="username" type="text" name="username" placeholder="Username" class="loginBox">
+      </div>
+      <br>
+      <div>
+        <input id="password" type="password" name="password" placeholder="Password" class="loginBox">
+      </div>
+      <br>
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
+      <br>
+      <div>
+        <button type="submit" class="buttomLogin letterText">Login</button>
+      </div>
 
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-
-  <br><br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Login</button>
-  <p class="account-message">Don't have an account yet?<a href="/auth/signup">Signup</a></p>
-</form>
+      <hr class="hrLogin">
+    </form>
+    <br>
+      <div>
+        <p class="account-message letterColorRed">Not a member?<a href="/auth/signup"> <span class="letterColorOrange">Create Account</span> </a></p>
+      </div>
+  </div>
+</div>
+{{!-- display inline block --}}

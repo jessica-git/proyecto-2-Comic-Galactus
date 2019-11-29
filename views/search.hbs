@@ -1,16 +1,62 @@
-<h1>SEARCH</h1>
+<div id="search">
+  <h2 class="letterColorRed letterText search ">Search</h2>
 
-<form action="/search/search" method="POST" id="form-container">
-  <label for="name">Username</label>
-  <input id="name" type="text" name="name" placeholder="Find your Character">
-  <button type="submit">Search</button>
-</form>
-<br><br>
+  <div class="col-md-6">
+    <hr class="hrLogin">
+    <form action="/search/search" method="POST" id="form-container">
+      <div class="row d-flex justify-content-around">
+        <input id="name" type="text" name="name" placeholder="Character name" class="loginBox">
+        <button type="submit" class="buttomSearch">Search</button>
+      </div>
+    </form>
+    <br>
+  </div>
 
-{{#each character}}
-<h2>{{name}}</h2> <img src="{{this.image.small_url}}" alt='foto de personaje'>
-<h3>Real Name: {{this.realname}}</h3>
-<h4>First Appeared in Issue: {{this.first_appeared_in_issue.name}}</h4>
-<h4>Publisher: {{this.publisher.name}}</h4>
-<p>{{this.deck}}</p>
-{{/each}}
+  <div class="col-md-6">
+    <img src="/images/hero search.png" alt="image superh ero" class="imgSearch">
+  </div>
+
+</div>
+
+<div>
+    <div class="boxSearch letterColorRed letterText">
+      <div class="row">
+        {{#each character}}
+          <div class="col-md-4">
+            <div class="cardSearch card">
+              <img src="{{this.image.small_url}}" alt='character photo' class="cardImgSearch imgComicSearch">
+              <div class="cardBodySearch ">
+                <h3 class="card-title letterText ">{{name}}</h3>
+                <h4>First Appeared in Issue:<span class="spanSearch letterText ">{{this.first_appeared_in_issue.name}}</span></h4>
+                <h4>Publisher:<span class="spanSearch letterText ">{{this.publisher.name}}</span></h4>
+                <p>Description:<span class="spanSearch letterText ">{{this.deck}}</span></p>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+</div>
+
+
+
+
+{{!-- 
+  <div id="background-pic2">
+    <div class="row  ">
+      {{#each comicDB}}
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="{{this.imgPath}}" alt="{{this.imgName}}">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <a href="/newComic/details/{{_id}}" class="btn"
+              style="color: #d6a22f; background-color: #c95c42; border:#c95c42; font-family:'Alegreya Sans', sans-serif; font-size:1.5em">Ver
+              detalles</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <img id="background-list" src="/images/backgroun-list.png" alt=""> --}}

@@ -2,14 +2,13 @@
   margin: 0;
   padding: 0;
 }
-
+//ETIQUETAS
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f8f7e7;
 }
 
-a {
-  color: #00B7FF;
+a:hover {
+  color: #D6A22F;
 }
 
 h1, h2, h3, body {
@@ -19,17 +18,234 @@ h1, h2, h3, body {
 h1 {
     margin-bottom: 40px;
 }
-
-.navbar {
-    margin-bottom: 60px;
+li {
+  padding-right: 15px;
 }
 
-.card img {
-    object-fit: cover;
-    height: 150px;
-}
 
+//ID
 #map {
     height: 500px;
     width: 100%;
 }
+#logo {
+  text-align: left;
+}
+
+#home {
+  margin: 50px 100px;
+  font-size: 20px;
+}
+
+#home > h1 {
+  font-size: 55px;
+  margin-top: -50px;
+}
+#home > p {
+  margin-top: -40px
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+#signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+#search {
+  margin: 50px 0 0 50px;
+}
+
+#read {
+  position: relative;
+  z-index: 100;
+}
+
+//CLASES
+.card img {
+    object-fit: cover;
+    height: 150px;
+}
+.letterTitle {
+  font-family: 'Calistoga', cursive;
+}
+.letterText {
+  font-family: 'Alegreya Sans', sans-serif;
+}
+.letterColorWhite {
+  color:white;
+}
+.letterColorRed {
+  color: #C95C42;
+}
+.letterColorBlue {
+  color: #77ABD4;
+}
+.letterColorOrange {
+  color: #D6A22F;
+}
+
+.containerGlobalNavbar{
+ display: flex;
+ justify-content: space-between;
+ padding-right: 0px;
+}
+.helloUser {
+  font-size: 12px;
+}
+
+.redNavbar {
+  background-color: #C95C42;
+  padding-left: 10px;
+  border-radius: 20px 0 0 20px;
+}
+.loginBox {
+  border-radius: 10px;
+  border: 1px solid #77ABD4; 
+  padding: 10px 105px 10px 10px;
+  background-color: #f8f7e7;
+}
+.hrLogin {
+  border: 1.2px solid #C95C42;
+  background-color: #C95C42;
+  width: 283px;
+}
+.buttomLogin {
+  border: 1px solid #D6A22F; 
+  padding: 10px 125px;
+  border-radius: 10px;
+  background-color: #D6A22F;
+  color: #C95C42;
+  font-size: 20px;
+}
+
+.buttomImgUpload {
+  background-color: #f8f7e7;
+  color:  #C95C42;
+}
+.buttomSignup {
+  padding: 7px 21px;
+  border: 1px solid #D6A22F;
+  border-radius: 10px;
+  background-color: #D6A22F;
+  color: #C95C42;
+  font-size: 20px;
+}
+
+.accountSingup {
+  margin-top: -30px;
+}
+.create-parag {
+  width: 263px;
+}
+.search {
+  margin-left: 20px;
+}
+.buttomSearch {
+  padding: 10px 125px;
+  border: 1px solid #77ABD4;
+  background-color: #77ABD4;
+  color: #C95C42;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.boxSearch {
+  position: relative;
+  z-index: 100;
+  margin-left: 90px;
+}
+.cardSearch {
+  width: 70%;
+  border-radius: 20px;
+  border: 2px solid #d6a22f;
+  margin-bottom: 45px;
+  background-color: #f8f7e7;
+}
+.spanSearch {
+  color:black
+}
+.spanRead {
+  color: #77ABD4;
+}
+.read {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.hrRead {
+  border: 1.2px solid #C95C42;
+  background-color: #C95C42;
+  width: 283px;
+}
+
+//CLASES DE IMG
+.logo{
+  height: 13%;
+  width: 13%;
+}
+.profileImgNav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 4px;
+} 
+
+.imgGroupHero {
+  height: 73%;
+  width: 94%;
+  top: 26%;
+  left: 4%;
+  position: fixed;
+}
+
+.imgLoginLeft {
+    width: 40%;
+    left: -7%;
+    position: absolute;
+    z-index: 100;
+}
+.imgLoginRigth {
+    width: 40%;
+    left: 67%;
+    position: absolute;
+    z-index: 100;
+}
+.imgSingup {
+    width: 101%;
+    margin: 13px;
+    left: -66%;
+    position: absolute;
+    z-index: 100;
+}
+.imgSearch {
+    width: 65%;
+    margin: 13px;
+    left: 93%;
+    margin-top: -149px;
+    position: absolute;
+    z-index: 0;
+}
+
+.imgComicSearch {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 50%;
+  object-fit: cover;
+}
+.imgRead {
+  position: absolute;
+  z-index: 0;
+  width: 65%;
+  left: 31%;
+  margin-top: -6%;
+}
+
+
+
