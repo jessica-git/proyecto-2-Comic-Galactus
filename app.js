@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const session = require("express-session");
-const MongoStore = require("connect-mongo")(session); 
+const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 
 mongoose
@@ -24,16 +24,16 @@ mongoose
   });
 
 const app_name = require("./package.json").name;
-const debug = require("debug")(`${app_name}:${path.basename(__filename).split(".")[0]}`)
+const debug = require("debug")(
+  `${app_name}:${path.basename(__filename).split(".")[0]}`
+);
 const app = express();
-
 
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 
 // Express View engine setup
 app.use(
@@ -60,7 +60,7 @@ hbs.registerHelper("ifUndefined", (value, options) => {
 });
 
 // default value for title local
-app.locals.title = "Comics";
+// app.locals.title = "Comics";
 
 // Enable authentication using session + passport
 app.use(
@@ -75,12 +75,11 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
-
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/search", require("./routes/search.routes"));
 app.use("/read", require("./routes/read.route"));
-app.use("/newComic", require("./routes/new-comic.routes")); 
+app.use("/newComic", require("./routes/new-comic.routes"));
 app.use("/profile", require("./routes/profile.route"));
 app.use("/store", require("./routes/store.routes"));
 

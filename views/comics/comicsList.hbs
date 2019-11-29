@@ -1,18 +1,30 @@
 <div class="container coasters-index">
+  <div class="header-list">
+    <h1 class="title-algo"
+      style="font-family:'Alegreya Sans', sans-serif; font-size:2.7em; margin-top: 35px; color:#c95c42">Tu lista de
+      Cómics creados</h1>
+  </div>
+  {{!-- <hr class="hrList"> --}}
+  <a href="/newComic/newComic" class="btn btn-dark button-newcomic"
+    style="color: #c95c42; background-color: #d6a22f; border:#d6a22f; font-family:'Alegreya Sans', sans-serif; font-size:1.7em">Crear
+    cómic nuevo</a>
 
-  <a href="/newComic/newComic" class="btn btn-dark">Crear cómic nuevo</a>
-  <h1 style="font-weight: 100">Tu lista de Cómics creados</h1>
+  <div id="background-pic2">
 
-  <div class="row">
-    {{#each comicDB}}
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="{{this.imgPath}}" alt="{{this.imgName}}">
-        <div class="card-body">
-          <h5 class="card-title">{{this.name}}</h5>
-          <a href="/newComic/details/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+    <div class="row  ">
+      {{#each comicDB}}
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="{{this.imgPath}}" alt="{{this.imgName}}">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <a href="/newComic/details/{{_id}}" class="btn"
+              style="color: #d6a22f; background-color: #c95c42; border:#c95c42; font-family:'Alegreya Sans', sans-serif; font-size:1.5em">Ver
+              detalles</a>
+          </div>
         </div>
       </div>
+      {{/each}}
     </div>
-    {{/each}}
   </div>
+  <img id="background-list" src="/images/backgroun-list.png" alt="">

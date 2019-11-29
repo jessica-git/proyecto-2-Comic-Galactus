@@ -1,25 +1,31 @@
-<H1>DETALLES DE TU CÓMIC</H1>
+<h1 style=" z-index: 100;" class="h1detail">Your Comic`s Details</h1>
+<div class="moveleft">
+  <div class="row">
 
-<div class="row">
+    <div class="col-md-4">
+      <div class="card7">
 
-  <div class="col-md-4">
-    <div class="card">
-      <img class="card-img-top" src="{{comicDT.image}}" alt="{{comicDT.name}}">
-      <div class="card-body">
-        <h5 class="card-title">{{comicDT.name}}</h5>
-        <p class="card-text">{{{comicDT.description}}}</p>
-        <p class="card-text">{{comicDT.issuesNumber}}</p>
-        <p class="card-text">{{comicDT.resourceTypes}}</p>
-        <p class="card-text">{{comicDT.volumen}}</p>
-        <p class="card-text">{{comicDT.publisherName}}</p>
+        <img class="card-img-top2" src="{{comicDT.imgPath}}" alt="{{comicDT.imgName}}">
+
+        <div class="card-body2">
+
+          <h5 class="card-title2">{{comicDT.name}}</h5>
+
+          <p class="card-text3">{{{comicDT.description}}}</p>
+          <p class="card-text3">{{comicDT.issuesNumber}}</p>
+          <p class="card-text3">{{comicDT.resourceTypes}}</p>
+          <p class="card-text3">{{comicDT.volumen}}</p>
+          <p class="card-text3">{{comicDT.publisherName}}</p>
+        </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <a href="/newComic/edit/{{comicDT._id}}">Edit</a>
 
-    <a href="/newComic/delete?id={{comicDT._id}}">Eliminar</a>
-  </div>
-
-
+  <a class="buttondetail5" href="/newComic/edit/{{comicDT._id}}">Edit</a>
+  <a class="buttondetail5" href="/newComic/delete?id={{comicDT._id}}">Eliminar</a>
 </div>
+
+
+
+
+<img style="margin-top: -620px; width: 106%;" class="backgrounddetails" src="/images/background-detail-01.png" alt="">

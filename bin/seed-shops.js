@@ -3,8 +3,10 @@ const Shop = require("../models/shops.model");
 
 require("dotenv").config();
 
-const dbtitle = "comic";
-mongoose.connect(`mongodb://localhost/${dbtitle}`);
+// const dbtitle = "comic";
+// mongoose.connect(`mongodb://localhost/${dbtitle}`);
+
+mongoose.connect(`${process.env.DB}`);
 
 Shop.collection.drop(); //el drop los residuos de la base de datos
 
@@ -147,6 +149,6 @@ Shop.create(shop, err => {
   if (err) {
     throw err;
   }
-  console.log(`Created ${shop.length} comic`);
+  console.log(`Created ${shop.length} shop`);
   mongoose.connection.close();
 });

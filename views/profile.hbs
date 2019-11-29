@@ -1,15 +1,23 @@
-<h1>PROFILE</h1>
-
-  <div>
-    <h2>Start making your comic lists</h2>
-    <a href="/newComic/newComic"> New comic</a>
-    <br>
-    <a href="/newComic/edit">Upload your comic</a>
-    <br>
-    <a href="newComic/comicsList">See your list of created comics</a>
+<div class="box2">
+  <h1 id="profh1">PROFILE</h1>
+  <div id="profilelet">
+    <img id="profpic" src="{{user.imgPath}}">
+    <div class="prof-desc">
+      <h3>Welcome {{user.username}} !!</h3>
+      <h4> <strong>You have registered with the email:</strong> {{user.email}}</h4>
+    </div>
   </div>
 
-  <img src="{{user.imgPath}}">
-  <h3>Wellcome {{user.username}} !!</h3>
-  <h4>Te has registrado con el email: {{user.email}}</h4>
- 
+
+
+  <h2 id="makingtx">Start making your comic lists !</h2>
+
+  <div id="profile">
+    <a class="newcomic" href="/newComic/newComic"> New comic</a>
+
+    <a class="newcomic" href="/newComic/edit">Upload your comic</a>
+
+    <a class="newcomic" href="newComic/comicsList">See your list of created comics</a>
+  </div>
+</div>
+<img class="pic-line" src="/images/prof-pic-line.png" alt="">
