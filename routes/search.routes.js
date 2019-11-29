@@ -13,7 +13,7 @@ router.post("/search", (req, res, next) => {
     .get(
       `https://comicvine.gamespot.com/api/search/?query=${nameCharacter}&api_key=9a20aa0fa095f2c84ac1081729cd51a18c4daa0d&format=json`
     )
-    .then(responseFromApi => {res.render("search", { character: responseFromApi.data.results })})
+    .then(responseFromApi => { res.render("search", { character: responseFromApi.data.results }) })
     .catch(err => console.log(err));
 });
 

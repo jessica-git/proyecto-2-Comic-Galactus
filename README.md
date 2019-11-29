@@ -3,12 +3,13 @@
 
 
 
-## Introduction
+## PROYECTO 2: APP CÓMICS
 
-**1. See the list of celebrities**\
-**2. See the details of a celebrity**\
+**1. Lee nuestras recomendaciones de cómics**\
+**2. Encuentra tu tienda más cercana de cómics**\
+**2. Diseña tu lista de cómics**\
+**2. Crea, edita, actualiza y elimina tus propios cómics**\
+**2. Busca los cómics por tu personaje preferido**
 
 
-//tiene limite y no especifica cual
-la documentacion de la api no es clara para hacer las busquedas
-como buscar(porque requiere de peticiones una detras de otra)
+//Creado por Chiti y Jéssica, Web Madrid 2019

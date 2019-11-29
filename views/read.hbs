@@ -1,20 +1,21 @@
-<H1>MUST READ</H1>
-<div class="row">
-  {{#each Comic}}
-  {{!-- {{#if (Comic.volume.name)}} --}}
-  <div class="col-md-4">
-    <div class="card">
-      <img class="card-img-top" src="{{image.small_url}}" alt="{{name}}">
-      <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text">{{{this.deck}}}</p>
-        <p class="card-text">{{this.issuesNumber}}</p>
-        <p class="card-text">{{this.resourceTypes}}</p>
-        <p class="card-text">{{this.volumen}}</p>
-        <p class="card-text">{{this.publisherName}}</p>
+<div id="read">
+  <div class="read">
+    <h2 class="letterColorRed letterText">Must Read</h2>
+    <hr class="hrRead">
+  </div>
+  <img src="/images/hero mustread.png" alt="superhero" class="imgRead">
+  <div class="row read">
+    {{#each Comic}}
+    <div class="col-md-4">
+
+      <div class="cardSearch card">
+        <img class="card-img-top imgComicSearch" src="{{image.small_url}}" alt="{{name}}">
+        <div class="card-body">
+          <h5 class="card-title letterText "><span class="spanRead">{{this.name}}</span></h5>
+          <p class="card-text letterText ">{{{this.deck}}}</p>
+        </div>
       </div>
     </div>
+    {{/each}}
   </div>
-  {{!-- {{/if}} --}}
-  {{/each}}
 </div>
