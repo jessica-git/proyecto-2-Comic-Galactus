@@ -1,7 +1,7 @@
 <h1 id="edititle">Edit Your Comic File</h1>
+<hr class="hrBlue">
 
 <div class="container">
-
   <div class="row">
 
     <div class="col-md-6">
@@ -9,7 +9,6 @@
     </div>
 
     <div class="col-md-6 margintop">
-
       <form action="/newComic/edit/{{theComic._id}}" method="post" enctype="multipart/form-data">
 
         <div class="form-group2">
@@ -70,20 +69,6 @@
           <a class="buttonform2" href="/newComic/comicsList" class="btn btn-dark">Go Back</a>
         </div>
       </form>
-
-      {{!-- <div class="container">
-          <form action="/images/upload" method="post" enctype="multipart/form-data">
-            <div class='form-group'>
-              <label for='input1'>Actualizar imagen</label>
-              <input name='imgName' type='text' class='form-control' id='input1'>
-            </div>
-            <div class='form-group'>
-              <label for='input2'>Imagen:</label>
-              <input name='imgFile' type='file' id='input2'>
-            </div>
-            <button type='submit' class='btn btn-dark'>Subir imagen</button>
-          </form>
-        </div> --}}
     </div>
   </div>
 </div>

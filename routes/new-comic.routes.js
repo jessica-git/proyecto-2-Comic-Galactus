@@ -29,7 +29,6 @@ router.post("/newComic", uploadCloud.single("imgPath"), (req, res) => {
     imgPath,
     imgName,
   })
-    // .then(newComic => console.log(newComic))
     .then(res.redirect("/newComic/comicsList"))
     .catch(x => "error:" + err);
 });

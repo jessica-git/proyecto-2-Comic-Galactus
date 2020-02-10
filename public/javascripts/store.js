@@ -4,15 +4,13 @@ function getAllPlacesFromTheAPI(myMap) {
   axios
     .get("/store/api")
     .then(response => {
-      //comprobar
-
       placeLocation(response.data.shop, myMap);
     })
     .catch(error => console.log(error));
 }
 
 function placeLocation(place, myMap) {
-  // console.log(place);
+  
   place.forEach(elm => {
     console.log(elm.cords.coordinates);
     const center = {
@@ -288,12 +286,3 @@ function initMap() {
 
   getAllPlacesFromTheAPI(myMap);
 }
-
-// shops.forEach(
-//   elm =>
-//     new google.maps.Marker({
-//       position: elm.cords,
-//       map: myMap,
-//       title: elm.name
-//     })
-// );

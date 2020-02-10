@@ -12,15 +12,6 @@ router.get('/', (req, res) => {
   .catch(err => console.log("error!!", err));
 });
 
-// function ensureAuthenticated(req, res, next) {
-//   if (req.user == true) {
-//     return next();
-//   } else {
-//     res.redirect('/login')
-//   }
-// }
-
-
 router.post("/profile", uploadCloud.single("imgPath"), (req, res, next) => res.render("profile"))
 
 
