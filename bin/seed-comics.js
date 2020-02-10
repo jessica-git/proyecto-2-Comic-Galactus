@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Comic = require("../models/comic.model");
 require("dotenv").config();
-// const dbtitle = "comic";
-// mongoose.connect(`mongodb://localhost/${dbtitle}`);
+
 mongoose.connect(`${process.env.DB}`);
-Comic.collection.drop(); //el drop los residuos de la base de datos
+
+Comic.collection.drop(); 
 
 const comic = [
   {

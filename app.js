@@ -59,9 +59,6 @@ hbs.registerHelper("ifUndefined", (value, options) => {
   }
 });
 
-// default value for title local
-// app.locals.title = "Comics";
-
 // Enable authentication using session + passport
 app.use(
   session({
@@ -75,8 +72,6 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
-<<<<<<< HEAD
-=======
 //definimos elementos globales que pasamos a la vista. En este caso es el user
 app.use(function (req, res, next) {
   res.locals = {
@@ -85,8 +80,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-
->>>>>>> 2097659507eaca854676ca8e36da2e231ffcc2c7
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/search", require("./routes/search.routes"));

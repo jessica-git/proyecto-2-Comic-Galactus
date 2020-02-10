@@ -3,7 +3,7 @@
 
 
 
-## PROYECTO 2: APP CÓMICS
+## PROYECTO 2: APP GALACTUS COMIC
 
 **1. Lee nuestras recomendaciones de cómics**\
 **2. Encuentra tu tienda más cercana de cómics**\
